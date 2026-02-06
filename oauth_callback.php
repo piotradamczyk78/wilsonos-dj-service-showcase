@@ -43,6 +43,9 @@ if (isset($_GET['code'])) {
         
         $tokenData = json_decode($response, true);
         
+        // Dodaj timestamp utworzenia
+        $tokenData['created_at'] = time();
+        
         // Zapisz token do pliku
         $tokenFile = 'spotify_token.json';
         file_put_contents($tokenFile, json_encode($tokenData));
@@ -84,7 +87,10 @@ if (isset($_GET['code'])) {
         'user-modify-playback-state',
         'user-read-currently-playing',
         'user-read-private',
-        'user-read-email'
+        'playlist-modify-public',
+        'playlist-modify-private',
+        'playlist-read-private',
+        'playlist-read-collaborative'
     ];
     
     $params = http_build_query([
@@ -92,7 +98,8 @@ if (isset($_GET['code'])) {
         'response_type' => 'code',
         'redirect_uri' => $config['REDIRECT_URI'],
         'scope' => implode(' ', $scopes),
-        'show_dialog' => 'false'
+        'show_dialog' => 'true',
+        'approval_prompt' => 'force'
     ]);
     
     $authUrl = 'https://accounts.spotify.com/authorize?' . $params;
