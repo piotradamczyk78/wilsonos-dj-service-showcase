@@ -1,0 +1,32 @@
+export const Colors = {
+  background: '#0a0a0a',
+  surface: '#1a1a2e',
+  surfaceLight: '#16213e',
+  card: '#1a1a2e',
+  cardBg: '#1a1a2e', // Alias for card
+  text: '#eaeaea',
+  textSecondary: '#8892b0',
+  textMuted: '#5a6080',
+  primary: '#e94560',
+  secondary: '#533483',
+  accent: '#0f3460',
+  highlight: '#f0c27f',
+  freudian: '#e94560',
+  jungian: '#533483',
+  neurobiological: '#00b4d8',
+  philosophical: '#f0c27f',
+  spotifyGreen: '#1DB954',
+  success: '#06d6a0',
+  warning: '#ffd166',
+  error: '#ef476f',
+  border: '#2a2a4a',
+  // For dark theme compatibility
+  dark: {
+    background: '#0a0a0a',
+    cardBg: '#1a1a2e',
+    text: '#eaeaea',
+    textSecondary: '#8892b0',
+    primary: '#e94560',
+    border: '#2a2a4a',
+  },
+};
